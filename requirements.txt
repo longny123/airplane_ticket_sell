@@ -48,6 +48,7 @@ PyMySQL==0.10.1
 pyparsing==2.4.7
 pyrsistent==0.16.0
 python-dateutil==2.8.1
+python-dotenv==0.15.0
 pyzmq==19.0.2
 requests==2.24.0
 Send2Trash==1.5.0
