@@ -31,7 +31,7 @@ section{
     position: relative;
     height: calc(100vh - 3rem);
     width: 100%;
-    background: url('../img/airplane.jpg') no-repeat top center / cover;
+    background: url('../img/Layout/airplane.jpg') no-repeat top center / cover;
     overflow: hidden;
 }
 .overlay{
