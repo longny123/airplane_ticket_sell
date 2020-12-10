@@ -3,10 +3,13 @@ const btns = document.querySelectorAll(".btn-slider");
 const slides = document.querySelectorAll(".img");
 const backgrounds = document.querySelectorAll('.bg');
 const options = document.querySelectorAll('.option');
+const content = document.querySelector(".content-text");
+const section = document.querySelector('section#content');
 
 var index = 1;
 var op_index = 0;
 var size = slides[index].clientWidth;
+let section_height = section.offsetHeight;
 
 update();
 
@@ -70,6 +73,12 @@ slider.addEventListener('transitionend', () => {
 		slider.style.transform = "translateX("+ (-size * index) +"px)";
 	}
 })
+
+window.addEventListener('scroll', ()=> {
+	let sectionY = section.getBoundingClientRect();
+
+	content.style.transform = `translateY(${scroll / (section_height + sectionY.top) * 50 - 50} px)`
+});
 
 btns.forEach(btn => btn.addEventListener('click', btnCheck));
 options.forEach(option => option.addEventListener('click', optionFunc));
