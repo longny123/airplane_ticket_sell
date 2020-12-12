@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Layout page</title>
-    <link rel="stylesheet" href="../static/css/home.css">
-    <link rel="shortcut icon" href="/static/img/Layout/flying.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Layout/airplane.jpg') }}">
 
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
@@ -133,8 +133,8 @@
                     </ul>
                 </div>
                 <div class="log-sign" style="--i: 1.35s">
-                    <a href="SignInPage.html" class="btn transparent">Log in</a>
-                    <a href="SignInPage.html" class="btn solid">Sign up</a>
+                    <a href="{{ url_for('SignInPage') }}" class="btn transparent">Log in</a>
+                    <a href="{{ url_for('SignInPage') }}" class="btn solid">Sign up</a>
                 </div>
             </div>
 
@@ -149,36 +149,36 @@
         <section>
             <div class="overlay">
                 <div class="background">
-                    <img src="../static/img/Layout/airplane1.jpg" class="bg">
-                    <img src="../static/img/Layout/airplane2.jpg" class="bg">
-                    <img src="../static/img/Layout/airplane3.jpg" class="bg">
-                    <img src="../static/img/Layout/airplane4.jpg" class="bg">
-                    <img src="../static/img/Layout/airplane5.jpg" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane1.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane2.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane3.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane4.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane5.jpg') }}" class="bg">
                 </div>
                 <div class="slider-container">
                     <div>
                         <div>
                             <div class="slider">
                                 <div class="img" id="first">
-                                    <img src="../static/img/Layout/airplane5.jpg" alt="">
+                                    <img src=".{{ url_for('static', filename='img/Layout/airplane5.jpg') }}" alt="">
                                 </div>
                                 <div class="img">
-                                    <img src="../static/img/Layout/airplane1.jpg" alt="">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane1.jpg') }}" alt="">
                                 </div>
                                 <div class="img">
-                                    <img src="../static/img/Layout/airplane2.jpg" alt="">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane2.jpg') }}" alt="">
                                 </div>
                                 <div class="img">
-                                    <img src="../static/img/Layout/airplane3.jpg" alt="">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane3.jpg') }}" alt="">
                                 </div>
                                 <div class="img">
-                                    <img src="../static/img/Layout/airplane4.jpg" alt="">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane4.jpg') }}" alt="">
                                 </div>
                                 <div class="img">
-                                    <img src="../static/img/Layout/airplane5.jpg" alt="">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane5.jpg') }}" alt="">
                                 </div>
                                 <div class="img" id="last">
-                                    <img src="../static/img/Layout/airplane1.jpg" alt="">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane1.jpg') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -204,19 +204,19 @@
                         About
                         <div class="border"></div>
                     </h3>
-                    <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Voluptate rem repellat minus quo praesentium? Sint velit qui a 
-                        perferendis esse repudiandae! Distinctio deserunt possimus 
-                        voluptatum maiores, quas iure atque minus, sapiente deleniti 
-                        repellendus qui culpa exercitationem animi. Minus distinctio 
+                    <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Voluptate rem repellat minus quo praesentium? Sint velit qui a
+                        perferendis esse repudiandae! Distinctio deserunt possimus
+                        voluptatum maiores, quas iure atque minus, sapiente deleniti
+                        repellendus qui culpa exercitationem animi. Minus distinctio
                         nesciunt praesentium voluptatem voluptatibus.</p>
                 </div>
                 <div class="imgContainer">
-                    <img src="../static/img/Layout/airplane.jpg" alt="">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane.jpg') }}" alt="">
                 </div>
             </div>
         </section>
     </main>
-    <script type="text/javascript" src="../static/constant/Layout.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='constant/Layout.js') }}"></script>
  </body>
 </html>

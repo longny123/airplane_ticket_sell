@@ -9,10 +9,11 @@ db = SQLAlchemy()
 # app.config.from_object('config.Config')
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:haiquang123@localhost/saledbv2?charset=utf8'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+from .config import Config
 
 def create_app():
-    app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object('config.Config')
+    app = Flask(__name__, instance_relative_config=False, template_folder='templates')
+    app.config.from_object(Config)
 
     db.init_app(app)
     with app.app_context():
