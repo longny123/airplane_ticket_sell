@@ -1,3 +1,222 @@
-{% extends layout.html%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Layout/airplane.jpg') }}">
 
-{% end block %}
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+
+            <div class="logo-container">
+                <h3 class="logo">Brand<span>Name</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 1</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 2</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 4</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.1s">
+                            <a href="#">Services <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 1</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 2</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 4</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="ContactPage.html">Contract us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="log-sign" style="--i: 1.35s">
+                    <a href="{{ url_for('SignInPage') }}" class="btn transparent">Log in</a>
+                    <a href="{{ url_for('SignInPage') }}" class="btn solid">Sign up</a>
+                </div>
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="overlay">
+                <div class="background">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane1.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane2.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane3.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane4.jpg') }}" class="bg">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane5.jpg') }}" class="bg">
+                </div>
+                <div class="slider-container">
+                    <div>
+                        <div>
+                            <div class="slider">
+                                <div class="img" id="first">
+                                    <img src=".{{ url_for('static', filename='img/Layout/airplane5.jpg') }}" alt="">
+                                </div>
+                                <div class="img">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane1.jpg') }}" alt="">
+                                </div>
+                                <div class="img">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane2.jpg') }}" alt="">
+                                </div>
+                                <div class="img">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane3.jpg') }}" alt="">
+                                </div>
+                                <div class="img">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane4.jpg') }}" alt="">
+                                </div>
+                                <div class="img">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane5.jpg') }}" alt="">
+                                </div>
+                                <div class="img" id="last">
+                                    <img src="{{ url_for('static', filename='img/Layout/airplane1.jpg') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <button class="btn-slider" id="prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn-slider" id="next"><i class="fas fa-chevron-right"></i></button>
+                    <ul class="ul-slider">
+                        <li class="option" op-index="0"></li>
+                        <li class="option" op-index="1"></li>
+                        <li class="option" op-index="2"></li>
+                        <li class="option" op-index="3"></li>
+                        <li class="option" op-index="4"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="container-text">
+                <div class="content-text">
+                    <h3 class="title">
+                        About
+                        <div class="border"></div>
+                    </h3>
+                    <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Voluptate rem repellat minus quo praesentium? Sint velit qui a
+                        perferendis esse repudiandae! Distinctio deserunt possimus
+                        voluptatum maiores, quas iure atque minus, sapiente deleniti
+                        repellendus qui culpa exercitationem animi. Minus distinctio
+                        nesciunt praesentium voluptatem voluptatibus.</p>
+                </div>
+                <div class="imgContainer">
+                    <img src="{{ url_for('static', filename='img/Layout/airplane.jpg') }}" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="text/javascript" src="{{ url_for('static', filename='constant/Layout.js') }}"></script>
+ </body>
+</html>

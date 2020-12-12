@@ -1,18 +1,21 @@
+from flask import Flask
 from flask import render_template
-from server import create_app
 
-app = create_app()
-
-
-@app.route('/')
-def hello_world():
-    return render_template("index.html")
+app = Flask(__name__)
 
 
-@app.route('/admin')
-def admin():
-    return render_template("Admin/index.html")
+@app.route('/', methods=['GET'])
+def home():
+    return render_template("HomePage.html")
+
+@app.route('/SignIn', methods=['GET','POST'])
+def sign_in_sign_up():
+    return render_template("SignInPage.html")
+
+@app.route('/Logined', methods=['GET'])
+def logined():
+    return render_template("LogIned.html")
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run()
