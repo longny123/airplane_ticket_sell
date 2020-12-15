@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../static/css/ChooseTicket.css">
     <link rel="shortcut icon" href="/static/img/Layout/flying.png">
 
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+{#    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>#}
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header>
@@ -128,13 +129,13 @@
                             </div>
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
-                            <a href="ContactPage.html">Contract us</a>
+                            <a href="/ContactUs">Contract us</a>
                         </li>
                     </ul>
                 </div>
                 <div class="log-sign" style="--i: 1.35s">
-                    <a href="SignInPage.html" class="btn transparent">Log in</a>
-                    <a href="SignInPage.html" class="btn solid">Sign up</a>
+                    <a href="/SignIn" class="btn transparent">Log in</a>
+                    <a href="/SignIn" class="btn solid">Sign up</a>
                 </div>
             </div>
 
@@ -272,7 +273,7 @@
                                     </tbody>
                                 </table>
                                 <input type="submit" value="search" class="btn-search">
-                        </div> 
+                        </div>
                     </div>
                 </div>
                 <div class="ticket-content">
@@ -421,7 +422,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>          
+            </div>
         </div>
     </section>
 </body>

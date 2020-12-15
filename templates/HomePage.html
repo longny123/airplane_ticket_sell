@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/Layout/flying.jpg') }}">
 
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+{#    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>#}
 </head>
 <body>
     <header>
@@ -128,13 +129,13 @@
                             </div>
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
-                            <a href="ContactPage.html">Contract us</a>
+                            <a href="/ContactUs">Contact us</a>
                         </li>
                     </ul>
                 </div>
                 <div class="log-sign" style="--i: 1.35s">
-                    <a href="{{ url_for('static', filename='SignInPage') }}" class="btn transparent">Log in</a>
-                    <a href="{{ url_for('static', filename='SignInPage') }}" class="btn solid">Sign up</a>
+                    <a href="/SignIn" class="btn transparent">Log in</a>
+                    <a href="/SignUp" class="btn solid">Sign up</a>
                 </div>
             </div>
 
@@ -217,6 +218,6 @@
             </div>
         </section>
     </main>
-    <script type="text/javascript" src="{{ url_for('static', filename='constant/Layout.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Layout.js') }}"></script>
  </body>
 </html>
