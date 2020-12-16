@@ -1,10 +1,10 @@
 import os, sys
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath('CongNghePhanMen1'))))
 import hashlib
+from sqlalchemy import update
 from CongNghePhanMen1.models import User
 from CongNghePhanMen1 import db
-from
+
 
 
 # def read_products(cate_id=None, kw=None, from_price=None, to_price=None):
@@ -46,11 +46,11 @@ def get_user_by_id(user_id):
 
 
 def register_user(name, email, username, password):
-    password1 = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
+    password = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
     u = User(name=name,
              email=email,
              username=username,
-             password=password1,
+             password=password,
              user_role='user')
     try:
         db.session.add(u)
@@ -59,6 +59,48 @@ def register_user(name, email, username, password):
     except Exception as e:
         print(e)
         return False
+
+
+def get_list_user():
+    return User.query
+
+
+# def read_user(user_id=None, name=None, email=None, username=None, password=None, active=None, user_role=None):
+#     list = User.query
+#
+#     if user_id:
+#         list = list.filter(User.id == user_id)
+#     if name:
+#         list = list.filter(User.name == name)
+#     if email:
+#         list = list.filter(User.email == email)
+#     if username:
+#         list = list.filter(User.username == username)
+#     if password:
+#         list = list.filter(User.email == password)
+#     if active:
+#         list = list.filter(User.active == active)
+#     if user_role:
+#         list = list.filter(User.user_role == user_role)
+#     return list.all()
+
+
+def update_user(user_id, name, username, password):
+    user = User.query.get(user_id)
+
+    if name:
+        user = user.filter(User.name==name)
+    if username:
+        user = user.filter(User.username == username)
+    if name:
+        user = user.filter(User.password==password)
+
+    return db.session.update(user)
+
+def delete_user(user_id):
+    user = User.query.get(user_id)
+    db.session.delete(user)
+    db.commit()
 
 
 # def cart_stats(cart):

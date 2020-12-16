@@ -9,11 +9,12 @@ import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath('CongNghePhanMen1'))))
 from CongNghePhanMen1 import db
 
+
 class DbBase(db.Model):
     __abstract__ = True
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(50), nullable=False)
+    id = db.Column(Integer, primary_key=True, autoincrement=True)
+    name = db.Column(String(50), nullable=False)
 
     def __str__(self):
         return self.name
@@ -25,6 +26,9 @@ class DbBase(db.Model):
 #
 #     ticket = relationship('Tickets', backref='categories', lazy=True)
 #
+#     def __repr__(self):
+#         return '<Category %r>' % (self.name)
+#
 #
 # class Tickets(DbBase):
 #     __tablename__ = 'tickets'
@@ -32,19 +36,17 @@ class DbBase(db.Model):
 #
 #
 #     starting_place = Column(String(255))
-#     destination = Column(String(255))
-#     price = Column(Float, default=0)
+#     destination = db.Column(String(255))
+#     date_start = db.Column(DateTime)
+#     date_arrive = db.Column(DateTime)
+#     price = db.Column(Float, default=0)
 #     categories_id = Column(Integer, ForeignKey(Category.id),
 #                          nullable=False)
-#     receipt_details = relationship('ReceiptDetail', backref='tickets', lazy=True)
-# user_role = Enum(value='USER_ROLE',
-#             names=[
-#                 ('user', 'user'),
-#                 ('admin', 'admin'),
-#                 ('admin_root', 'admin_root')
-#             ]
-#         )
+#     # receipt_details = relationship('ReceiptDetail', backref='tickets', lazy=True)
 #
+#     def __repr__(self):
+#         return '<Tickets %r>' % (self.name)
+
 
 class User(DbBase, UserMixin):
     __tablename__ = 'user'
@@ -55,9 +57,12 @@ class User(DbBase, UserMixin):
     password = Column(String(100), nullable=False)
     active = Column(Boolean, default=True)
     user_role = Column(Enum('user', 'admin', name="ValueTypes"), default='user')
-#     receipts = relationship('Receipt', backref='users', lazy=True)
-#
-#
+
+    #     receipts = relationship('Receipt', backref='users', lazy=True)
+    def __repr__(self):
+        return '<User %r>' % (self.name)
+
+
 # class Receipt(db.Model):
 #     __table_args__ = {'extend_existing': True}
 #

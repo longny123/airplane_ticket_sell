@@ -132,10 +132,12 @@
                         </li>
                     </ul>
                 </div>
+                {% if current_user.is_authenticated %}
                 <div class="log-sign" style="--i: 1.35s">
-                    <span>Hello User</span>
-                    <a href="HomePage.html" class="btn solid">Log out</a>
+                    <span>Hello {{ current_user.name }}</span>
+                    <a href="/LogOut" class="btn solid">Log out</a>
                 </div>
+                {% endif %}
             </div>
 
             <div class="hamburger-menu-container">
