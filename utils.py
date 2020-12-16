@@ -85,17 +85,17 @@ def get_list_user():
 #     return list.all()
 
 
-def update_user(user_id, name, username, password):
+def update_user(user_id=None, name=None, username=None, password=None):
     user = User.query.get(user_id)
 
-    if name:
-        user = user.filter(User.name==name)
-    if username:
-        user = user.filter(User.username == username)
-    if name:
-        user = user.filter(User.password==password)
+    user.name = name
+    user.username = username
+    user.password = password
 
-    return db.session.update(user)
+    db.session.commit()
+
+    return user
+
 
 def delete_user(user_id):
     user = User.query.get(user_id)

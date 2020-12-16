@@ -105,8 +105,9 @@ def information(user_id):
         new_password = request.form.get('new_password')
         confirm_password = request.form.get('confirm_password')
         if new_password == confirm_password:
-            utils.update_user(name, username, new_password)
-            return redirect("Admin/information.html")
+            user = utils.update_user(user_id=user_id, name=name, username=username, password=new_password)
+            if user:
+                return redirect("/")
     return render_template("Admin/information.html", user=user)
 
 

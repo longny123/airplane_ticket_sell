@@ -255,88 +255,73 @@
 
                             <!-- Area Chart -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <form method="post">
+                                <form method="post">
+                                    <div class="card-header py-3">
                                         <button type="submit" class="btn btn-primary btn-user btn-block" formmethod="post" value="save">Save</button>
-                                    </form>
-                                </div>
-                                <form>
-                                    <a href="#Name" class="d-block card-header py-3 form-group" data-toggle="collapse"
-                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Name</h6>
-                                </a>
-                                <div class="collapse show" id="Name">
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-group">
-                                            <input type="text" name="name" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                value="{{ user.name }}">
-                                        </div>
-                                        </form>
                                     </div>
-                                </div>
-                                <a href="#username" class="d-block card-header py-3 form-group" data-toggle="collapse"
-                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">User Name</h6>
-                                </a>
-                                <div class="collapse show" id="username">
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-group">
-                                            <input type="text" name="username" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                value="{{ user.username }}">
+                                        <a href="#Name" class="d-block card-header py-3 form-group" data-toggle="collapse"
+                                        role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                        <h6 class="m-0 font-weight-bold text-primary">Name</h6>
+                                    </a>
+                                    <div class="collapse show" id="Name">
+                                        <div class="card-body">
+                                                <div class="form-group">
+                                                <input type="text" name="name" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    value="{{ user.name }}">
+                                            </div>
                                         </div>
-                                        </form>
                                     </div>
-                                </div>
-                                <a href="#email" class="d-block card-header py-3 form-group" data-toggle="collapse"
-                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Email</h6>
-                                </a>
-                                <div class="collapse show" id="email">
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-group">
-                                            <input type="email" name="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp" disabled="true"
-                                                value="{{ user.email }}">
+                                    <a href="#username" class="d-block card-header py-3 form-group" data-toggle="collapse"
+                                        role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                        <h6 class="m-0 font-weight-bold text-primary">User Name</h6>
+                                    </a>
+                                    <div class="collapse show" id="username">
+                                        <div class="card-body">
+                                                <div class="form-group">
+                                                <input type="text" name="username" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    value="{{ user.username }}">
+                                            </div>
                                         </div>
-                                        </form>
                                     </div>
-                                </div>
-                                <a href="#password" class="d-block card-header py-3 form-group" data-toggle="collapse"
-                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Password</h6>
-                                </a>
-                                <div class="collapse show" id="password">
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-group">
-                                            <input type="password" name="old_password" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp" disabled="true"
-                                                value="{{ user.password }}">
+                                    <a href="#email" class="d-block card-header py-3 form-group" data-toggle="collapse"
+                                        role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                        <h6 class="m-0 font-weight-bold text-primary">Email</h6>
+                                    </a>
+                                    <div class="collapse show" id="email">
+                                        <div class="card-body">
+                                                <div class="form-group">
+                                                <input type="email" name="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp" disabled="true"
+                                                    value="{{ user.email }}">
+                                            </div>
                                         </div>
-                                        </form>
-                                        <form>
-                                            <div class="form-group">
-                                            <input type="password" name="new_password" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter your password you wanted...">
-                                        </div>
-                                        </form>
-                                        <form>
-                                            <div class="form-group">
-                                            <input type="password" name="confirm_password" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Confirm password...">
-                                        </div>
-                                        </form>
                                     </div>
-                                </div>
+                                    <a href="#password" class="d-block card-header py-3 form-group" data-toggle="collapse"
+                                        role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                        <h6 class="m-0 font-weight-bold text-primary">Password</h6>
+                                    </a>
+                                    <div class="collapse show" id="password">
+                                        <div class="card-body">
+                                                <div>
+                                                <input type="password" name="old_password" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp" disabled="true"
+                                                    value="{{ user.password }}">
+                                                </div>
+                                                <div>
+                                                <input type="password" name="new_password" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="Enter your password you wanted...">
+                                                </div>
+                                                <div>
+                                                <input type="password" name="confirm_password" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="Confirm password...">
+                                                </div>
+                                        </div>
+                                    </div>
                                 </form>
-
                         </div>
                     </div>
                 </div>

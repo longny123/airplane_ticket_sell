@@ -20,28 +20,28 @@ class DbBase(db.Model):
         return self.name
 
 
-# class Category(DbBase):
-#     __tablename__ = 'category'
-#     __table_args__ = {'extend_existing': True}
-#
-#     ticket = relationship('Tickets', backref='categories', lazy=True)
-#
-#     def __repr__(self):
-#         return '<Category %r>' % (self.name)
-#
-#
-# class Tickets(DbBase):
-#     __tablename__ = 'tickets'
-#     __table_args__ = {'extend_existing': True}
-#
-#
-#     starting_place = Column(String(255))
-#     destination = db.Column(String(255))
-#     date_start = db.Column(DateTime)
-#     date_arrive = db.Column(DateTime)
-#     price = db.Column(Float, default=0)
-#     categories_id = Column(Integer, ForeignKey(Category.id),
-#                          nullable=False)
+class Category(DbBase):
+    __tablename__ = 'category'
+    __table_args__ = {'extend_existing': True}
+
+    # ticket = relationship('Tickets', backref='categories', lazy=True)
+
+    def __repr__(self):
+        return '<Category %r>' % (self.name)
+
+
+class Tickets(DbBase):
+    __tablename__ = 'tickets'
+    __table_args__ = {'extend_existing': True}
+
+
+    starting_place = Column(String(255))
+    destination = db.Column(String(255))
+    date_start = db.Column(DateTime)
+    date_arrive = db.Column(DateTime)
+    price = db.Column(Float, default=0)
+    categories_id = Column(Integer, ForeignKey(Category.id),
+                         nullable=False)
 #     # receipt_details = relationship('ReceiptDetail', backref='tickets', lazy=True)
 #
 #     def __repr__(self):
