@@ -59,7 +59,7 @@ section{
     left: 100%;
 }
 
-.container-items .title > h3{   
+.container-items .title > h3{
     color: #fff;
     font-weight: 600;
     font-style: inherit;
@@ -80,11 +80,13 @@ section{
 .ticket-container{
     position: absolute;
     display: flex;
+    align-items: center;
+    justify-items: center;
 }
 
 .table-container{
     position: relative;
-    top: 30%;
+    top: 50%;
     margin: 0 20px 0 20px;
 }
 
@@ -96,7 +98,7 @@ section{
     color: #fff;
     font-weight: 600;
 }
-/* 
+/*
 .table-container > thead{
     color: #fff;
     font-weight: 600;
@@ -114,7 +116,6 @@ section{
 
 .table-container td{
     margin: .2rem;
-    padding: .1rem;
     justify-items: center;
     align-items: center;
     padding: .5rem;
@@ -127,7 +128,6 @@ section{
 
 .ticket-content{
     position: absolute;
-    top: 0;
     background-color: #19a1bd;
     display: flex;
     justify-items: center;
@@ -188,6 +188,10 @@ section{
     border-radius: 2rem;
 }
 
+form.search {
+    display: contents;
+}
+
 input.btn-search{
     padding: 1rem 1rem;
     font-size: .8rem;
@@ -199,6 +203,7 @@ input.btn-search{
     text-transform: uppercase;
     color: #60b460;
     cursor: pointer;
+    width: auto;
 }
 
 input.btn-search:hover{
@@ -538,7 +543,7 @@ input.btn-search:hover{
         background-color: #60b460;
         display: none;
     }
-    
+
     .nav-link:hover > .dropdown,
     .dropdown-link:hover > .dropdown{
         display: block;
@@ -610,5 +615,156 @@ input.btn-search:hover{
         justify-content: flex-start;
         opacity: 0;
         transform: translateY(15px);
+    }
+
+    .main-form{
+    left: 10%;
+    }
+
+    .ticket-container{
+        position: absolute;
+        display: flex;
+    }
+
+    .table-container{
+        position: relative;
+        top: 30%;
+        margin: 0 20px 0 20px;
+    }
+
+    .table-container input[type="text"]{
+        height: 50%;
+    }
+
+    .table-container > caption, thead{
+        color: #fff;
+        font-weight: 600;
+    }
+    /*
+    .table-container > thead{
+        color: #fff;
+        font-weight: 600;
+    } */
+
+    /* .table-container input[type="text"]{
+        position: absolute;
+        width: 100px;
+        border: none;
+        box-shadow: none;
+        font-size: 16px;
+        color: #fff;
+    } */
+
+
+    .table-container td{
+        margin: .2rem;
+        justify-items: center;
+        align-items: center;
+        padding: .5rem;
+    }
+
+    .table-tickets{
+        position: absolute;
+        top: 0;
+    }
+
+    .ticket-content{
+        position: absolute;
+        background-color: #19a1bd;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        border: 2px solid #fff;
+        border-radius: 2rem;
+        margin: 0 .2rem;
+        width: 90%;
+        height: 50%;
+        overflow: scroll;
+        top: 50%;
+    }
+
+    .table-tickets input[type="submit"]{
+        display: flex;
+        padding: 1rem 1rem;
+        font-size: .8rem;
+        border: 2px solid #fff;
+        border-radius: 2rem;
+        line-height: 1;
+        margin: 0 .2rem;
+        transition: .3s;
+        text-transform: uppercase;
+        color: #19a1bd;
+        cursor: pointer;
+    }
+
+    .table-tickets caption{
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .table-tickets input[type="submit"]:hover{
+        background-color: transparent;
+        color: #fff;
+    }
+
+    .table-tickets td{
+        margin: 2rem;
+        padding: 1rem;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .table-tickets caption{
+        color: #fff;
+        font-size: 600;
+    }
+
+    .table-tickets > tbody{
+        color: #fff;
+    }
+
+    .table-tickets > input {
+        border: 2px solid #fff;
+        border-radius: 2rem;
+    }
+
+    form.search {
+        display: contents;
+    }
+
+    input.btn-search{
+        padding: 1rem 1rem;
+        font-size: .8rem;
+        border: 2px solid #fff;
+        border-radius: 2rem;
+        line-height: 1;
+        margin: 0 .2rem;
+        transition: .3s;
+        text-transform: uppercase;
+        color: #60b460;
+        cursor: pointer;
+        width: auto;
+    }
+
+    input.btn-search:hover{
+        background-color: transparent;
+        color: #fff;
+    }
+
+    .container-items .form .main-form{
+        background-color: #60b460;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        border: 2px solid #fff;
+        border-radius: 2rem;
+        margin: 0 .2rem;
+    }
+
+    .main-form .table-container > span{
+        width: 100%;
+        padding: 0 2rem;
     }
 }

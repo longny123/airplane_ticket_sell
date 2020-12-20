@@ -1,10 +1,11 @@
 import os, sys
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath('CongNghePhanMen1'))))
 import hashlib
 from sqlalchemy import update
-from CongNghePhanMen1.models import User
-from CongNghePhanMen1 import db
-
+from models import User, Tickets, Report, Receipt, ReceiptDetail
+from CongNghePhanMen1 import db, app
+from datetime import datetime
 
 
 # def read_products(cate_id=None, kw=None, from_price=None, to_price=None):
@@ -22,9 +23,12 @@ from CongNghePhanMen1 import db
 #
 #     return products.all()
 
+def load_tickets():
+    return Tickets.query
 
-# def get_product_by_id(product_id):
-#     return Tickets.query.get(product_id)
+
+def get_tickets_by_id(ticket_id):
+    return Tickets.query.get(ticket_id)
     # products = read_data(path='data/products.json')
     # for p in products:
     #     if p["id"] == product_id:
@@ -61,8 +65,73 @@ def register_user(name, email, username, password):
         return False
 
 
+def add_ticket(name, starting_place, destination_place, starting_date, return_date, price):
+    t = Tickets(name=name,
+                starting_place=starting_place,
+                destination_place=destination_place,
+                date_starting=starting_date,
+                date_return=return_date,
+                price=price)
+    try:
+        db.session.add(t)
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
+
+def edit_ticket(ticket_id, name, starting_place, destination_place, starting_date, return_date, price):
+    ticket = Tickets.query.get(ticket_id)
+
+    ticket.name = name
+    ticket.starting_place = starting_place
+    ticket.destination = destination_place
+    ticket.date_starting = starting_date
+    ticket.date_return = return_date
+    ticket.price = price
+
+    try:
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
+
+def delete_ticket(ticket_id):
+    ticket = get_tickets_by_id(ticket_id)
+    try:
+        db.session.delete(ticket)
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
+
 def get_list_user():
     return User.query
+
+
+def confirm_ticket(ticket_id, user_id, quantity, price):
+    ticket = get_tickets_by_id(ticket_id)
+    user = get_user_by_id(user_id)
+
+    receipt = Receipt(user_id=user_id)
+    receipt_detail = ReceiptDetail(receipt_id=receipt.id,
+                                   ticket_id=ticket_id,
+                                   quantity=quantity,
+                                   price=price)
+
+    try:
+        db.session.add(receipt_detail)
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
 
 
 # def read_user(user_id=None, name=None, email=None, username=None, password=None, active=None, user_role=None):
@@ -86,22 +155,48 @@ def get_list_user():
 
 
 def update_user(user_id=None, name=None, username=None, password=None):
-    user = User.query.get(user_id)
+    password = str(hashlib.md5(password.strip().encode('utf-8')).hexdigest())
 
+    user = User.query.get(user_id)
     user.name = name
     user.username = username
     user.password = password
-
-    db.session.commit()
-
-    return user
+    try:
+        db.session.commit()
+        return user
+    except Exception as e:
+        print(e)
+        return False
 
 
 def delete_user(user_id):
-    user = User.query.get(user_id)
-    db.session.delete(user)
-    db.commit()
+    user = get_user_by_id(user_id)
+    try:
+        db.session.delete(user)
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
 
+
+def load_report():
+    return Report.query
+
+
+def add_report(name, kind, email, phone, message):
+    r = Report(name=name,
+               kind=kind,
+               email=email,
+               phone=phone,
+               message=message)
+    try:
+        db.session.add(r)
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
 
 # def cart_stats(cart):
 #     total_amount, total_quantity = 0, 0

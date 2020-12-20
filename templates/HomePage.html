@@ -17,7 +17,7 @@
             <input type="checkbox" name="" id="check">
 
             <div class="logo-container">
-                <h3 class="logo">Brand<span>Name</span></h3>
+                <h3 class="logo">Flying<span>Sky</span></h3>
             </div>
 
             <div class="nav-btn">
@@ -27,11 +27,11 @@
                             <a href="#">Home</a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
-                            <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+                            <a href="{{ url_for('home') }}">Menu <i class="fas fa-caret-down"></i></a>
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">
-                                        <a href="#">Link 1</a>
+                                        <a href="{{ url_for('buy_ticket') }}">Buy Ticket</a>
                                     </li>
                                     <li class="dropdown-link">
                                         <a href="#">Link 2</a>
@@ -129,7 +129,7 @@
                             </div>
                         </li>
                         <li class="nav-link" style="--i: 1.35s">
-                            <a href="/ContactUs">Contact us</a>
+                            <a href="{{ url_for('contact_us') }}">Contact us</a>
                         </li>
                     </ul>
                 </div>

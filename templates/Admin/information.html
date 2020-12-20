@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">FlyingSky Admin</div>
             </a>
 
             <!-- Divider -->
@@ -121,17 +121,31 @@
             </li>
 
             <!-- Nav Item - User Manger -->
-            <li class="nav-item">
-                <a class="nav-link" href="/UserManager">
+             <li class="nav-item">
+                <a class="nav-link" href="/UserManager/{{ current_user.id }}">
                     <i class="fas fa-user-edit"></i>
                     <span>User Manger</span></a>
             </li>
 
             <!-- Nav Item - Information -->
             <li class="nav-item">
-                <a class="nav-link" href="/Information">
+                <a class="nav-link" href="/Information/{{ current_user.id }}">
                     <i class="fas fa-info"></i>
                     <span>Information</span></a>
+            </li>
+
+             <!-- Nav Item - Information -->
+            <li class="nav-item">
+                <a class="nav-link" href="/TicketManager/{{ current_user.id }}">
+                    <i class="fas fa-calendar-plus"></i>
+                    <span>Ticket Manager</span></a>
+            </li>
+
+            <!-- Nav Item - Report -->
+            <li class="nav-item">
+                <a class="nav-link" href="/Report/{{ current_user.id }}">
+                    <i class="fas fa-pen-fancy"></i>
+                    <span>Report</span></a>
             </li>
 
             <!-- Divider -->
@@ -331,7 +345,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; FlyingSky 2020</span>
                     </div>
                 </div>
             </footer>
