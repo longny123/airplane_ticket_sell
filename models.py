@@ -2,8 +2,8 @@ from sqlalchemy import Column, Integer, Float, String, \
     Boolean, Enum, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin
-from enum import Enum as UserEnum
-import flask_whooshalchemy as wa
+# from enum import Enum as UserEnum
+# import flask_whooshalchemy as wa
 from datetime import datetime
 import os, sys
 
@@ -98,7 +98,7 @@ class ReceiptDetail(db.Model):
     price = Column(Integer, default=0)
 
 
-wa.whoosh_index(app, Tickets)
+# wa.whoosh_index(app, Tickets)
 # wa.whoosh_index(app, Receipt)
 
 if __name__ == '__main__':

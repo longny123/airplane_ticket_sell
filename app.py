@@ -74,13 +74,14 @@ def search_ticket():
     return render_template('ChooseTicket.html', list_ticket=result)
 
 
-@app.route('/ConfirmTicket/<int:user_id>/<int:ticket_id>', methods=['post'])
+@app.route('/ConfirmTicket/<int:user_id>/<int:ticket_id>', methods=['GET', 'POST'])
 def confirm_ticket(user_id, ticket_id):
     ticket = utils.get_tickets_by_id(ticket_id)
-
-    if utils.confirm_ticket(ticket_id=ticket_id, user_id=user_id, quantity=1, price=ticket.price):
-        return redirect(url_for('buy_ticket'))
-
+    if request.method == 'POST':
+        quantity = int(request.form.get('quantity'))
+        if utils.confirm_ticket(ticket_id=ticket_id, user_id=user_id, quantity=quantity, price=ticket.price):
+            return redirect(url_for('buy_ticket'))
+    return render_template('Confirm_ticket.html', ticket=ticket)
 
 @app.route('/ContactUs', methods=['GET', 'POST'])
 def contact_us():
@@ -142,7 +143,7 @@ def information(user_id):
         if new_password == confirm_password:
             user = utils.update_user(user_id=user_id, name=name, username=username, password=new_password)
             if user:
-                return redirect(url_for('information', user_id=current_user.id))
+                return redirect(url_for('user_manager', user_id=current_user.id))
     return render_template("Admin/information.html", user=user)
 
 
@@ -221,6 +222,10 @@ def delete(user_id):
     if user:
         return redirect(url_for('ticket_manager', user_id=current_user.id))
     return render_template("Admin/information.html")
+
+@app.route('/SoldTicket/<int:user_id>/', methods=['GET'])
+def sold_ticket(user_id):
+    return render_template("Admin/sold_ticket.html", receipt=utils.get_all_receipt())
 
 
 @app.route('/Report/<int:user_id>', methods=['GET', 'POST'])

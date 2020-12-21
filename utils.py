@@ -115,23 +115,36 @@ def get_list_user():
 
 
 def confirm_ticket(ticket_id, user_id, quantity, price):
-    ticket = get_tickets_by_id(ticket_id)
-    user = get_user_by_id(user_id)
-
     receipt = Receipt(user_id=user_id)
+    db.session.add(receipt)
+    db.session.commit()
+    # db.session.close()
+    # session = db.Session()
+    # receipt_created = session.query(Receipt).filter(Receipt.user_id==user_id)
     receipt_detail = ReceiptDetail(receipt_id=receipt.id,
                                    ticket_id=ticket_id,
                                    quantity=quantity,
-                                   price=price)
+                                   price=price * quantity)
+    db.session.add(receipt_detail)
 
     try:
-        db.session.add(receipt_detail)
         db.session.commit()
         return True
     except Exception as e:
         print(e)
+        db.session.rollback()
         return False
 
+
+def get_all_receipt():
+    result = []
+    user_receipt = db.session.query(Receipt, User).filter(Receipt.user_id == User.id).all()
+    receipt_receipt_detail = db.session.query(Receipt, ReceiptDetail).filter(
+        ReceiptDetail.receipt_id == Receipt.id).all()
+    receipt_detail_ticket = db.session.query(Tickets, ReceiptDetail).filter(ReceiptDetail.ticket_id == Tickets.id).all()
+    for i, j, k in zip(user_receipt, receipt_receipt_detail, receipt_detail_ticket):
+        result = result + [i, j, k]
+    return user_receipt, receipt_receipt_detail, receipt_detail_ticket
 
 
 # def read_user(user_id=None, name=None, email=None, username=None, password=None, active=None, user_role=None):
@@ -166,6 +179,7 @@ def update_user(user_id=None, name=None, username=None, password=None):
         return user
     except Exception as e:
         print(e)
+        db.session.rollback()
         return False
 
 
