@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Logined.css') }}">
+    <link rel="shortcut icon" href="/static/img/Layout/flying.png">
+
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
+
+            <div class="logo-container">
+                <h3 class="logo">Flying<span>Sky</span></h3>
+            </div>
+
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 1</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 2</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 4</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.1s">
+                            <a href="#">Services <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 1</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 2</a>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Link 4</a>
+                                    </li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="ContactPage.html">Contract us</a>
+                        </li>
+                    </ul>
+                </div>
+                {% if current_user.is_authenticated %}
+                <div class="log-sign" style="--i: 1.35s">
+                    <span>Hello {{ user.name }}</span>
+                    <a href="/LogOut" class="btn solid">Log out</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+
+                </div>
+            </div>
+        </div>
+    </header>
+<section>
+     <div class="container-section">
+         <div class="overlay">
+            <div class="table-content">
+                <table class="table-tickets">
+                    <caption class="tickets">Danh sach ve da mua</caption>
+                    <thead>
+                        <th>Ngay mua</th>
+                        <th>Nguoi mua</th>
+                        <th>Noi di</th>
+                        <th>Noi den</th>
+                        <th>Ngay di</th>
+                        <th>Ngay ve</th>
+                        <th>So luong</th>
+                        <th>Gia ve</th>
+                    </thead>
+                    <tbody>
+                    {% for i in list_ticket[0] %}
+                        {% for j in list_ticket[1] %}
+                            {% for k in list_ticket[2] %}
+                                <tr>
+                                    <td>{{ i[0].created_date }}</td>
+                                    <td>{{ i[1].name }}</td>
+                                    <td>{{ k[0].starting_place }}</td>
+                                    <td>{{ k[0].destination_place }}</td>
+                                    <td>{{ k[0].date_starting }}</td>
+                                    <td>{{ k[0].date_return }}</td>
+                                    <td>{{ k[1].quantity }}</td>
+                                    <td>{{ k[0].price }}</td>
+{#                                         <td>#}
+    {#                                                        <form method="post">#}
+    {#                                                            <a href="/EditTicket/{{ i.id }}" class="btn btn-info btn-circle btn-sm">#}
+    {#                                                            <i class="fas fa-info-circle"></i>#}
+    {#                                                        </a>#}
+    {#                                                        </form>#}
+    {#                                                        <form action="/DeleteTicket/{{ i.id }}" method="post">#}
+    {#                                                        <button type="submit" class="btn btn-danger btn-circle btn-sm">#}
+    {#                                                            <i class="fas fa-trash"></i>#}
+    {#                                                        </button>#}
+    {#                                                        </form>#}
+    {#                                                    </td>#}
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+         </div>
+     </div>
+</section>
+</body>
+</html>
