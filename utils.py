@@ -146,6 +146,15 @@ def get_all_receipt():
         result = result + [i, j, k]
     return user_receipt, receipt_receipt_detail, receipt_detail_ticket
 
+def get_ticket_detail(user_id):
+    result = []
+    user_receipt = db.session.query(Receipt, User).filter(Receipt.user_id == User.id, User.id == user_id, Receipt.user_id == user_id).all()
+    receipt_receipt_detail = db.session.query(Receipt, ReceiptDetail).filter(
+        ReceiptDetail.receipt_id == Receipt.id, Receipt.user_id == user_id).all()
+    receipt_detail_ticket = db.session.query(Tickets, ReceiptDetail).filter(ReceiptDetail.ticket_id == Tickets.id).all()
+    for i, j, k in zip(user_receipt, receipt_receipt_detail, receipt_detail_ticket):
+        result = result + [i, j, k]
+    return user_receipt, receipt_receipt_detail, receipt_detail_ticket
 
 # def read_user(user_id=None, name=None, email=None, username=None, password=None, active=None, user_role=None):
 #     list = User.query

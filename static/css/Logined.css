@@ -42,6 +42,79 @@ section{
     left: 0;
     background-color: rgb(56, 165, 238, 0.5);
 }
+.table-container td{
+    margin: .2rem;
+    justify-items: center;
+    align-items: center;
+    padding: .5rem;
+}
+
+.table-tickets{
+    position: absolute;
+    top: 0;
+}
+
+.ticket-content{
+    position: absolute;
+    background-color: #19a1bd;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    margin: 0 .2rem;
+    width: 90%;
+    height: 50%;
+    overflow: scroll;
+    top: 50%;
+}
+
+/*.table-tickets input[type="submit"]{*/
+/*    display: flex;*/
+/*    padding: 1rem 1rem;*/
+/*    font-size: .8rem;*/
+/*    border: 2px solid #fff;*/
+/*    border-radius: 2rem;*/
+/*    line-height: 1;*/
+/*    margin: 0 .2rem;*/
+/*    transition: .3s;*/
+/*    text-transform: uppercase;*/
+/*    color: #19a1bd;*/
+/*    cursor: pointer;*/
+/*}*/
+
+.table-tickets caption{
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/*.table-tickets input[type="submit"]:hover{*/
+/*    background-color: transparent;*/
+/*    color: #fff;*/
+/*}*/
+
+.table-tickets td{
+    margin: 2rem;
+    padding: 1rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.table-tickets caption{
+    color: #fff;
+    font-size: 600;
+}
+
+.table-tickets > tbody{
+    color: #fff;
+}
+
+.table-tickets > input {
+    border: 2px solid #fff;
+    border-radius: 2rem;
+}
 
 .container{
     max-width: 65rem;
@@ -373,7 +446,7 @@ section{
         background-color: #60b460;
         display: none;
     }
-    
+
     .nav-link:hover > .dropdown,
     .dropdown-link:hover > .dropdown{
         display: block;

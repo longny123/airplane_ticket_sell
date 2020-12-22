@@ -24,7 +24,7 @@ def sign_in():
 
         if user:
             login_user(user)
-            return render_template("LogIned.html")
+            return redirect(url_for('logined', user_id=user.id))
         else:
             err_msg = "wrong password"
     return render_template('SignInPage.html', err_msg=err_msg)
@@ -33,8 +33,7 @@ def sign_in():
 @app.route('/LogOut')
 def log_out():
     if logout_user():
-        return redirect('/SignIn')
-    return render_template("HomePage.html")
+        return redirect(url_for("home"))
 
 
 @app.route('/SignUp', methods=['GET', 'POST'])
@@ -56,16 +55,17 @@ def sign_up():
     return render_template('SignInPage.html', err_msg=err_msg)
 
 
-@app.route('/Logined', methods=['GET'])
-def logined():
-    return render_template("LogIned.html")
+@app.route('/Logined/<int:user_id>', methods=['GET'])
+def logined(user_id):
+    user = utils.get_user_by_id(user_id)
+    return render_template("LogIned.html", user=user, list_ticket=utils.get_ticket_detail(user_id))
 
 
 @app.route('/BuyTicket')
 def buy_ticket():
     return render_template('ChooseTicket.html', list_ticket=utils.load_tickets())
 
-@app.route('/BuyTicket/Search', methods=['post'])
+@app.route('/BuyTicket/Search', methods=['POST'])
 def search_ticket():
     result = Tickets.query.whoosh_search(request.form.get('starting_place'),
                                          request.form.get('destination_place'),
@@ -115,7 +115,6 @@ def user_manager(user_id):
 @app.route('/UserManager/<int:user_id>/AddUser', methods=['GET', 'POST'])
 @decorator.login_required
 def add_user(user_id):
-    user = utils.get_user_by_id(user_id)
     mes = ""
     err_msg = ""
     if request.method == 'POST':
