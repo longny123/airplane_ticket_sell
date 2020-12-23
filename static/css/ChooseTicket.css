@@ -40,7 +40,7 @@ section{
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgb(56, 165, 238, 0.5);
+    background-color: rgba(56, 165, 238, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,6 +51,8 @@ section{
     top: 10%;
     left: 10%;
     right: 10%;
+    margin-right: inherit;
+    overflow: scroll;
 }
 
 .container-items .title{
@@ -65,7 +67,7 @@ section{
     font-style: inherit;
 }
 
-.container{
+.container, .main-form{
     max-width: 65rem;
     padding: 0 2rem;
     margin: 0 auto;
@@ -73,57 +75,50 @@ section{
     position: relative;
 }
 
+
 .main-form{
     left: 10%;
 }
 
 .ticket-container{
-    position: absolute;
+    position: inherit;
     display: flex;
     align-items: center;
     justify-items: center;
+    margin-right: inherit;
+    overflow: scroll;
 }
 
 .table-container{
-    position: relative;
+    position: inherit;
     top: 50%;
     margin: 0 20px 0 20px;
+    width: 100%;
 }
 
 .table-container input[type="text"]{
     height: 50%;
+    width: 100%;
 }
 
 .table-container > caption, thead{
     color: #fff;
     font-weight: 600;
 }
-/*
-.table-container > thead{
-    color: #fff;
-    font-weight: 600;
-} */
-
-/* .table-container input[type="text"]{
-    position: absolute;
-    width: 100px;
-    border: none;
-    box-shadow: none;
-    font-size: 16px;
-    color: #fff;
-} */
-
 
 .table-container td{
     margin: .2rem;
     justify-items: center;
     align-items: center;
     padding: .5rem;
+    text-align: center;
 }
 
 .table-tickets{
     position: absolute;
     top: 0;
+    left: 25%;
+    width: 100%;
 }
 
 .ticket-content{
@@ -160,6 +155,7 @@ section{
     font-weight: 600;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    text-align: center;
 }
 
 .table-tickets input[type="submit"]:hover{
@@ -172,11 +168,13 @@ section{
     padding: 1rem;
     justify-items: center;
     align-items: center;
+    text-align: center;
 }
 
 .table-tickets caption{
     color: #fff;
-    font-size: 600;
+    font-weight: 600;
+    text-align: center;
 }
 
 .table-tickets > tbody{
@@ -630,6 +628,7 @@ input.btn-search:hover{
         position: relative;
         top: 30%;
         margin: 0 20px 0 20px;
+        width: 100%;
     }
 
     .table-container input[type="text"]{
@@ -640,21 +639,6 @@ input.btn-search:hover{
         color: #fff;
         font-weight: 600;
     }
-    /*
-    .table-container > thead{
-        color: #fff;
-        font-weight: 600;
-    } */
-
-    /* .table-container input[type="text"]{
-        position: absolute;
-        width: 100px;
-        border: none;
-        box-shadow: none;
-        font-size: 16px;
-        color: #fff;
-    } */
-
 
     .table-container td{
         margin: .2rem;
@@ -666,6 +650,7 @@ input.btn-search:hover{
     .table-tickets{
         position: absolute;
         top: 0;
+        width: 100%;
     }
 
     .ticket-content{
@@ -714,11 +699,12 @@ input.btn-search:hover{
         padding: 1rem;
         justify-items: center;
         align-items: center;
+        text-align: center;
     }
 
     .table-tickets caption{
         color: #fff;
-        font-size: 600;
+        font-weight: 600;
     }
 
     .table-tickets > tbody{

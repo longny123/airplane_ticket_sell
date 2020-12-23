@@ -23,14 +23,14 @@
                 <div class="nav-links">
                     <ul>
                         <li class="nav-link" style="--i: .6s">
-                            <a href="#">Home</a>
+                             <a href="{{ url_for('home') }}">Menu <i class="fas fa-caret-down"></i></a>
                         </li>
                         <li class="nav-link" style="--i: .85s">
-                            <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+                            <a href="{{ url_for('buy_ticket') }}">Menu <i class="fas fa-caret-down"></i></a>
                             <div class="dropdown">
                                 <ul>
                                     <li class="dropdown-link">
-                                        <a href="#">Link 1</a>
+                                        <a href="#">Buy Ticket</a>
                                     </li>
                                     <li class="dropdown-link">
                                         <a href="#">Link 2</a>
